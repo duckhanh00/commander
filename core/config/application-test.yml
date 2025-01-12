@@ -1,0 +1,27 @@
+server.port: 8080
+spring:
+  datasource:
+    password: password
+    url: jdbc:postgresql://localhost:5432/database
+    username: user
+    datasource:
+      driver-class-name: com.postgresql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  servlet:
+    context-path: /commander/v1
+  error:
+    include-binding-errors: always
+    include-message: always
+management:
+  security:
+    enabled: false
+management.endpoints.web.exposure.include: "health,info"
+management.endpoint.health.show-details: always
+management.endpoint.health.probes.enabled: true
